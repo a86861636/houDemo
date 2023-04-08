@@ -1,14 +1,19 @@
 <template>
-    <datav />
+    <div class="box">
+        <tMenu />
+        <datav />
+    </div>
 </template>
   
 <script>
 import datav from '../components/datav1/index.vue'
+import tMenu from '../components/menu.vue'
 
 export default {
     name: 'app',
     components: {
-        datav
+        datav,
+        tMenu
     },
     data() {
         return {}
@@ -16,5 +21,10 @@ export default {
 }
 </script>
   
-<style lang="less"></style>
+<style lang="less">
+.box {
+    display: flex;
+    height: 100%;
+}
+</style>
   
