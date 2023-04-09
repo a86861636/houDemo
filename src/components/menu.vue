@@ -12,10 +12,6 @@
                 <el-menu-item index="1-2">环比增速</el-menu-item>
             </el-menu-item-group>
         </el-submenu> -->
-        <el-menu-item index="/intro">
-            <i class="el-icon-document"></i>
-            <span slot="title">开发区介绍</span>
-        </el-menu-item>
         <el-menu-item index="/demo1">
             <i class="el-icon-location"></i>
             <span slot="title">GDP指标</span>
@@ -31,6 +27,10 @@
         <el-menu-item index="5">
             <i class="el-icon-s-help"></i>
             <span slot="title">N年经济目标</span>
+        </el-menu-item>
+        <el-menu-item index="/intro">
+            <i class="el-icon-document"></i>
+            <span slot="title">开发区介绍</span>
         </el-menu-item>
     </el-menu>
 </template>
