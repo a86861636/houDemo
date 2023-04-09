@@ -195,6 +195,7 @@ export default {
       text-align: center;
       margin-left: 10px;
       cursor: pointer;
+      white-space: nowrap;
     }
   }
 }
