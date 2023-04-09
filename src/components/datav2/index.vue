@@ -197,6 +197,7 @@ export default {
       width: 450px;
       padding-bottom: 15px;
       display: flex;
+      color: white;
     }
 
     .button {
