@@ -1,15 +1,16 @@
 <template>
-   <datav />
+    <div class="box">
+        <tMenu />
+        <router-view></router-view>
+    </div>
 </template>
   
 <script>
-import datav from '../components/datav1/index.vue'
 import tMenu from '../components/menu.vue'
 
 export default {
     name: 'app',
     components: {
-        datav,
         tMenu
     },
     data() {

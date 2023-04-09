@@ -2,7 +2,23 @@
   <div id="data-view1">
     <dv-full-screen-container>
 
-      <top-header />
+
+      <div class="main-header">
+        <div class="mh-left">
+          <dv-border-box-8 class="button">
+            指标总量
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            同比增速
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            环比增速
+          </dv-border-box-8>
+        </div>
+        <a href="http://localhost:8080/#/demo1" class="mh-middle">Demo-机电运维管理台</a>
+        <div class="mh-right">
+        </div>
+      </div>
 
       <div class="main-content">
         <digital-flop />
@@ -95,6 +111,34 @@ export default {
     flex-grow: 0;
     box-sizing: border-box;
     padding-bottom: 20px;
+  }
+
+  .main-header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .mh-middle {
+      font-size: 30px;
+      line-height: 80px;
+    }
+
+    .mh-left,
+    .mh-right {
+      width: 450px;
+      padding-bottom: 15px;
+      display: flex;
+    }
+
+    .button {
+      width: 120px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      margin-left: 10px;
+      cursor: pointer;
+    }
   }
 }
 </style>

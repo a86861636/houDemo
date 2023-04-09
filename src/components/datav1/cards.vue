@@ -39,7 +39,7 @@ export default {
       this.cards = new Array(5).fill(0).map((foo, i) => ({
         title: '测试路段' + (i + i),
         total: {
-          number: [randomExtend(9000, 10000)],
+          number: [randomExtend(900, 1000)],
           content: '{nt}',
           textAlign: 'right',
           style: {
