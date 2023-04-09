@@ -19,7 +19,7 @@ export default {
 }
 </script>
   
-<style lang="less">
+<style lang="less" scoped>
 .box {
     display: flex;
     height: 100%;

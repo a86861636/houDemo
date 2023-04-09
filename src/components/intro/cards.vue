@@ -10,13 +10,13 @@
         <div class="card-footer-item">
           <div class="footer-title">累计金额</div>
           <div class="footer-detail">
-            <dv-digital-flop :config="card.total" style="width:70%;height:35px;" />元
+            <dv-digital-flop :config="card.total" style="width:70%;height:35px;" />万元
           </div>
         </div>
         <div class="card-footer-item">
-          <div class="footer-title">巡查病害</div>
+          <div class="footer-title">项目数量</div>
           <div class="footer-detail">
-            <dv-digital-flop :config="card.num" style="width:70%;height:35px;" />处
+            <dv-digital-flop :config="card.num" style="width:70%;height:35px;" />个
           </div>
         </div>
       </div>
@@ -36,8 +36,8 @@ export default {
     createData() {
       const { randomExtend } = this
 
-      this.cards = new Array(5).fill(0).map((foo, i) => ({
-        title: '测试路段' + (i + i),
+      this.cards = new Array(1).fill(0).map((foo, i) => ({
+        title: '投资金额',
         total: {
           number: [randomExtend(900, 1000)],
           content: '{nt}',
@@ -118,11 +118,12 @@ export default {
   display: flex;
   justify-content: space-between;
   height: 45%;
+  color: white;
 
   .card-item {
     background-color: rgba(6, 30, 93, 0.5);
     border-top: 2px solid rgba(1, 153, 209, .5);
-    width: 19%;
+    width: 100%;
     display: flex;
     flex-direction: column;
   }

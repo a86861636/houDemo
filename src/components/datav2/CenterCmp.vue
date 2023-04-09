@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .center-cmp {
   width: 100%;
   height: 100%;

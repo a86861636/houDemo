@@ -94,7 +94,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .top-middle-cmp {
   position: relative;
   padding: 0 50px;

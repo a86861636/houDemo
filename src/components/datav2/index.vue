@@ -86,7 +86,6 @@ export default {
 
 <style lang="less">
 #data-view2 {
-  width: 100%;
   height: 100%;
   background-color: #030409;
   color: #fff;

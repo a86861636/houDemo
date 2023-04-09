@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #ranking-board {
   width: 20%;
   box-shadow: 0 0 3px blue;

@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #water-level-chart {
   width: 20%;
   box-sizing: border-box;

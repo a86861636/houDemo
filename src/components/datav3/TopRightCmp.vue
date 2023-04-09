@@ -153,7 +153,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .top-right-cmp {
   position: relative;
   padding: 0 50px;

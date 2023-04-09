@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .bottom-right-table-1 {
   width: calc(~"25% + 10px");
   height: 100%;

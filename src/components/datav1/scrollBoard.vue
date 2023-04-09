@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #scroll-board {
   width: 50%;
   box-sizing: border-box;

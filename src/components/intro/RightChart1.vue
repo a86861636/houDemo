@@ -1,11 +1,11 @@
 <template>
   <div class="right-chart-1">
-    <div class="rc1-header">赵六收费站</div>
+    <div class="rc1-header">企业数量</div>
 
     <div class="rc1-chart-container">
       <div class="left">
-        <div class="number">262</div>
-        <div>设备运行总数</div>
+        <div class="number">271</div>
+        <!-- <div>设备运行总数</div> -->
       </div>
 
       <dv-capsule-chart class="right" :config="config" />
@@ -21,27 +21,27 @@ export default {
       config: {
         data: [
           {
-            name: '收费系统',
+            name: '合资企业',
             value: 25
           },
           {
-            name: '通信系统',
-            value: 66
+            name: '独资企业',
+            value: 20
           },
           {
-            name: '监控系统',
+            name: '国有企业',
+            value: 4
+          },
+          {
+            name: '私营企业',
             value: 123
-          },
-          {
-            name: '供配电系统',
-            value: 72
           },
           {
             name: '其他',
             value: 99
           }
         ],
-        unit: '件'
+        unit: '家'
       }
     }
   }
@@ -54,8 +54,12 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+  color: white;
+  padding: 30px;
+  box-sizing: border-box;
 
   .rc1-header {
+    padding: 20px 0 0 20px;
     font-size: 24px;
     font-weight: bold;
     height: 30px;

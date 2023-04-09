@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .left-chart-3 {
   width: 100%;
   height: 33%;

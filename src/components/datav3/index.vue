@@ -70,9 +70,8 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #data-view3 {
-  width: 100%;
   height: 100%;
   background-color: #030409;
   color: #fff;

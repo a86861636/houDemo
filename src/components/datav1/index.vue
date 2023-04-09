@@ -15,7 +15,7 @@
             环比增速
           </dv-border-box-8>
         </div>
-        <a href="http://localhost:8080/#/demo1" class="mh-middle">Demo-机电运维管理台</a>
+        <a href="http://localhost:8080/#/demo1" class="mh-middle">GDP指标</a>
         <div class="mh-right">
         </div>
       </div>
@@ -70,9 +70,8 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #data-view1 {
-  width: 100%;
   height: 100%;
   background-color: #030409;
   color: #fff;

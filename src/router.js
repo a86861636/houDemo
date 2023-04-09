@@ -4,12 +4,12 @@ import Router from "vue-router";
 Vue.use(Router);
 
 export default new Router({
+  mode: "history",
   routes: [
     {
       path: "/",
       redirect: "/demo1",
     },
-    
     {
       path: "/demo1",
       component: () => import("./views/layout.vue"),
@@ -29,7 +29,17 @@ export default new Router({
           name: "demo3",
           component: () => import("./views/demo3.vue")
         },
+        {
+          path: "/intro",
+          name: "intro",
+          component: () => import("./views/intro.vue")
+        },
       ]
+    },
+    {
+      path: "/home",
+      name: "home",
+      component: () => import("./views/home.vue")
     },
   ]
 });

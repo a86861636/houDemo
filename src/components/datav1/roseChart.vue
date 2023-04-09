@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #rose-chart {
   width: 30%;
   height: 100%;

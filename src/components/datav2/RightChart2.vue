@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .right-chart-2 {
   width: 100%;
   height: 100%;

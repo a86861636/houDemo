@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .bottom-left-chart-2 {
   .header-name {
     height: 150px;

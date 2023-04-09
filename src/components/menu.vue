@@ -12,6 +12,10 @@
                 <el-menu-item index="1-2">环比增速</el-menu-item>
             </el-menu-item-group>
         </el-submenu> -->
+        <el-menu-item index="/intro">
+            <i class="el-icon-document"></i>
+            <span slot="title">开发区介绍</span>
+        </el-menu-item>
         <el-menu-item index="/demo1">
             <i class="el-icon-location"></i>
             <span slot="title">GDP指标</span>
@@ -21,12 +25,8 @@
             <span slot="title">GDP对比指标</span>
         </el-menu-item>
         <el-menu-item index="/demo3">
-            <i class="el-icon-document"></i>
-            <span slot="title">产业结构</span>
-        </el-menu-item>
-        <el-menu-item index="4">
             <i class="el-icon-setting"></i>
-            <span slot="title">规上企业</span>
+            <span slot="title">产业结构</span>
         </el-menu-item>
         <el-menu-item index="5">
             <i class="el-icon-s-help"></i>
@@ -47,9 +47,12 @@ export default {
 }
 </script>
   
-<style lang="less">
+<style lang="less" scoped>
 /deep/.el-menu-item-group__title {
     padding: 0px;
+}
+.el-menu {
+    border-right: solid 0px #382121 !important;
 }
 </style>
   
