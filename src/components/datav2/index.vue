@@ -2,12 +2,79 @@
   <div id="data-view2">
     <dv-full-screen-container>
       <div class="main-header">
-        <div class="mh-left"></div>
-        <a href="http://localhost:8080/#/demo3" class="mh-middle">机电设备电子档案</a>
+        <div class="mh-left" v-if="type == 1">
+          <dv-border-box-8 class="button">
+            项目总投资额
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            项目数量
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            项目类别
+          </dv-border-box-8>
+        </div>
+        <div class="mh-left" v-if="type == 2">
+          <dv-border-box-8 class="button">
+            本年度建设目标
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            年度目标进度
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            分项目年度进度
+          </dv-border-box-8>
+        </div>
+        <div class="mh-left" v-if="type == 3">
+          <dv-border-box-8 class="button">
+            一产项目规模
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            二产项目规模
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            三产项目规模
+          </dv-border-box-8>
+        </div>
+        <div class="mh-left" v-if="type == 4">
+          <dv-border-box-8 class="button">
+            汽车零部件
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            金属新材料
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            石油钻具
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            生物医药
+          </dv-border-box-8>
+        </div>
+        <div class="mh-left" v-if="type == 5">
+          <dv-border-box-8 class="button">
+            项目概要
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            地理位置
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            项目性质
+          </dv-border-box-8>
+        </div>
+        <a class="mh-middle" v-if="type == 1">项目概况</a>
+        <a class="mh-middle" v-if="type == 2">年度情况</a>
+        <a class="mh-middle" v-if="type == 3">分产业项目</a>
+        <a class="mh-middle" v-if="type == 4">产业链项目</a>
+        <a class="mh-middle" v-if="type == 5">项目建设进度</a>
         <div class="mh-right">
-          <dv-border-box-2 style="width: 120px; height: 50px; line-height: 50px; text-align:center;margin-left:200px;">
-            综合管理台
-          </dv-border-box-2>
+          <dv-border-box-8 class="button" v-if="type == 5">
+            总投资
+          </dv-border-box-8>
+          <dv-border-box-8 class="button" v-if="type == 5">
+            项目建设
+          </dv-border-box-8>
+          <dv-border-box-8 class="button" v-if="type == 5">
+            建设预警
+          </dv-border-box-8>
         </div>
       </div>
 
@@ -79,7 +146,14 @@ export default {
     BottomCharts
   },
   data() {
-    return {}
+    return {
+      type: '1'
+    }
+  },
+  watch: {
+    '$route.query'(val) {
+      this.type = val.type
+    }
   }
 }
 </script>
@@ -115,11 +189,22 @@ export default {
 
     .mh-middle {
       font-size: 30px;
+      line-height: 80px;
     }
 
     .mh-left,
     .mh-right {
       width: 450px;
+      padding-bottom: 15px;
+      display: flex;
+    }
+
+    .button {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      margin-left: 10px;
+      cursor: pointer;
     }
   }
 

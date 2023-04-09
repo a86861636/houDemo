@@ -8,31 +8,27 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/demo1",
+      redirect: "/home",
     },
     {
       path: "/demo1",
-      component: () => import("./views/layout.vue"),
+      component: () => import("./views/layout1.vue"),
       children: [
         {
           path: "/demo1",
           name: "demo1",
           component: () => import("./views/demo1.vue")
         },
+      ]
+    },
+    {
+      path: "/demo2",
+      component: () => import("./views/layout2.vue"),
+      children: [
         {
           path: "/demo2",
           name: "demo2",
           component: () => import("./views/demo2.vue")
-        },
-        {
-          path: "/demo3",
-          name: "demo3",
-          component: () => import("./views/demo3.vue")
-        },
-        {
-          path: "/intro",
-          name: "intro",
-          component: () => import("./views/intro.vue")
         },
       ]
     },

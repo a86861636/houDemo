@@ -1,10 +1,8 @@
 <template>
   <div id="data-view1">
     <dv-full-screen-container>
-
-
       <div class="main-header">
-        <div class="mh-left">
+        <div class="mh-left" v-if="type == 1">
           <dv-border-box-8 class="button">
             指标总量
           </dv-border-box-8>
@@ -15,7 +13,61 @@
             环比增速
           </dv-border-box-8>
         </div>
-        <a href="http://localhost:8080/#/demo1" class="mh-middle">GDP指标</a>
+        <div class="mh-left" v-if="type == 2">
+          <dv-border-box-8 class="button">
+            临汾开发区排序
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            全省开发区排序
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            全省开发区增速排序
+          </dv-border-box-8>
+        </div>
+        <div class="mh-left" v-if="type == 3">
+          <dv-border-box-8 class="button">
+            三产结构
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            三产结构增速
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            产业优势
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            政策优势
+          </dv-border-box-8>
+        </div>
+        <div class="mh-left" v-if="type == 4">
+          <dv-border-box-8 class="button">
+            企业数量及增速
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            产业规模
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            产业结构占比
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            战略新兴产业
+          </dv-border-box-8>
+        </div>
+        <div class="mh-left" v-if="type == 5">
+          <dv-border-box-8 class="button">
+            目标完成情况
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            招商目标完成
+          </dv-border-box-8>
+          <dv-border-box-8 class="button">
+            龙头企业经营情况
+          </dv-border-box-8>
+        </div>
+        <a class="mh-middle" v-if="type == 1">GDP指标</a>
+        <a class="mh-middle" v-if="type == 2">GDP对比指标</a>
+        <a class="mh-middle" v-if="type == 3">产业结构</a>
+        <a class="mh-middle" v-if="type == 4">规上企业</a>
+        <a class="mh-middle" v-if="type == 5">N年经济目标</a>
         <div class="mh-right">
         </div>
       </div>
@@ -64,9 +116,15 @@ export default {
     cards
   },
   data() {
-    return {}
+    return {
+      type: '1'
+    }
   },
-  methods: {}
+   watch:{
+     '$route.query'(val){
+      this.type = val.type
+    }
+  }
 }
 </script>
 

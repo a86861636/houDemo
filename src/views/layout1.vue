@@ -6,7 +6,7 @@
 </template>
   
 <script>
-import tMenu from '../components/menu.vue'
+import tMenu from '../components/menu1.vue'
 
 export default {
     name: 'app',

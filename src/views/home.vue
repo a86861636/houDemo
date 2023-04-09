@@ -2,7 +2,7 @@
     <div class="home">
         <div class="red">
             <div class="nav-box">
-                <el-menu :default-active="activeIndex" background-color="#BE1329" text-color="#ffffff"
+                <el-menu :default-active="activeIndex" router background-color="#BE1329" text-color="#ffffff"
                     active-text-color='#DBBC83' class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-menu-item index="1">首页</el-menu-item>
                     <el-submenu index="6">
@@ -31,12 +31,14 @@
                         <el-menu-item index="4-4">CBD商务区</el-menu-item>
                     </el-submenu>
                     <el-submenu index="5">
-                        <template slot="title">重点企业介绍</template>
+                        <template slot="title">重点企业</template>
                         <el-menu-item index="5-1">装备制造</el-menu-item>
                         <el-menu-item index="5-2">金属材料</el-menu-item>
                         <el-menu-item index="5-3">生物医药</el-menu-item>
                         <el-menu-item index="5-4">军工装备</el-menu-item>
                     </el-submenu>
+                    <el-menu-item index="/demo1">经济运行全景图</el-menu-item>
+                    <el-menu-item index="/demo2">重大项目建设管理</el-menu-item>
                 </el-menu>
             </div>
             <div class="car-box">

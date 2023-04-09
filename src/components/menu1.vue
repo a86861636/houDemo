@@ -12,25 +12,25 @@
                 <el-menu-item index="1-2">环比增速</el-menu-item>
             </el-menu-item-group>
         </el-submenu> -->
-        <el-menu-item index="/demo1">
+        <el-menu-item index="/demo1?type=1">
             <i class="el-icon-location"></i>
             <span slot="title">GDP指标</span>
         </el-menu-item>
-        <el-menu-item index="/demo2">
+        <el-menu-item index="/demo1?type=2">
             <i class="el-icon-menu"></i>
             <span slot="title">GDP对比指标</span>
         </el-menu-item>
-        <el-menu-item index="/demo3">
+        <el-menu-item index="/demo1?type=3">
             <i class="el-icon-setting"></i>
             <span slot="title">产业结构</span>
         </el-menu-item>
-        <el-menu-item index="5">
+        <el-menu-item index="/demo1?type=4">
             <i class="el-icon-s-help"></i>
-            <span slot="title">N年经济目标</span>
+            <span slot="title">规上企业</span>
         </el-menu-item>
-        <el-menu-item index="/intro">
+        <el-menu-item index="/demo1?type=5">
             <i class="el-icon-document"></i>
-            <span slot="title">开发区介绍</span>
+            <span slot="title">N年经济目标</span>
         </el-menu-item>
     </el-menu>
 </template>
