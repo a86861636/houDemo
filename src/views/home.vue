@@ -49,15 +49,22 @@
                     </el-carousel-item>
                 </el-carousel>
                 <div class="news">
-                    <div class="title">北京亦庄创新发布第519次网络发布</div>
-                    <div class="title1">首期规模20.01亿元 北京经开区特设产业升级股权投资基金</div>
+                    <div class="title">紧抓落实省市数字经济全面发展实施</div>
+                    <div class="title1">以开发区为主引擎，建立公共服
+                        务数字化支撑体系要求。</div>
                     <div class="content">
-                        为了促进北京经开区政府投资引导基金对重大项目的直接股权投资，近日，北京经开区设立北京经济技术开发区产业升级股权投资基金，首期规模达20.01亿元，用金融活水助力北京经开区产业高质量发展。</div>
+                        侯马开发区抢抓数字化转型机遇，以政府监管服务数字化提升、产业转型数字化服务
+                        为目标，综合智慧服务管理平台建设为手段，创新产业服务模式、提升产业服务效率。
+                        增强产业链数字化监管、评估以及精准招商能力，助力侯马产业高质量发展目标实现。
+                        为全省打造中西部地区数字经济创新发展新高地做出重要示范。</div>
                     <div class="detail">查看详情 ></div>
                 </div>
             </div>
         </div>
-        <div class="middle">
+        <div class="demo">
+            侯马晋级开发区动态展示模块
+        </div>
+        <!-- <div class="middle">
             <div class="icon-box">
                 <div class="icon-item">
                     <div class="img icon1"></div>
@@ -228,9 +235,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="down">
-            <div>承办：XXXXXXXXXXXXX</div>  <div style="margin-left: 50px">网安备: XXXXXXX9292X</div> 
+            <div>承办：XXXXXXXXXXXXX</div>
+            <div style="margin-left: 50px">网安备: XXXXXXXXXXXX</div>
         </div>
     </div>
 </template>
@@ -240,6 +248,17 @@
 </script>
   
 <style lang="less" scoped>
+.demo {
+    width: 1120px;
+    line-height: 400px;
+    text-align: center;
+    margin-top: 50px;
+    background: rgb(209, 209, 209);
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 20px;
+}
+
 /deep/.el-menu.el-menu--horizontal {
     border: 0;
 }
@@ -535,7 +554,8 @@
     color: #CC2236;
     border: 1px solid #CC2236;
 }
-.down{
+
+.down {
     margin-top: 30px;
     background: #d5bc8d;
     width: 100%;
