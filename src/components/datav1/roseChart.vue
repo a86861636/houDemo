@@ -1,6 +1,6 @@
 <template>
   <div id="rose-chart">
-    <div class="rose-chart-title">累计计量资金分布</div>
+    <!-- <div class="rose-chart-title">累计计量资金分布</div> -->
     <dv-charts :option="option" />
   </div>
 </template>
@@ -73,7 +73,7 @@ export default {
 
 <style lang="less" scoped>
 #rose-chart {
-  width: 30%;
+  width: 100%;
   height: 100%;
   background-color: rgba(6, 30, 93, 0.5);
   border-top: 2px solid rgba(1, 153, 209, .5);
@@ -89,7 +89,7 @@ export default {
   }
 
   .dv-charts-container {
-    height: calc(~"100% - 50px");
+    height: 100%;
   }
 }
 </style>

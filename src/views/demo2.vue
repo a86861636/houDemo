@@ -3,7 +3,7 @@
 </template>
   
 <script>
-import datav from '../components/datav2/index.vue'
+import datav from '../components/datav1/index.vue'
 
 export default {
     name: 'app',

@@ -1,7 +1,11 @@
 <template>
   <div id="ranking-board">
-    <div class="ranking-board-title">巡查上报记录数量</div>
-    <dv-scroll-ranking-board :config="config" />
+    <div class="ranking-board-title">企业列表</div>
+    <div class="company">
+      <div v-for="item in company" :class="{ active: item.active }" @click="activeItem(item.label)">
+        {{ item.label }}</div>
+    </div>
+    <!-- <dv-scroll-ranking-board :config="config" /> -->
   </div>
 </template>
 
@@ -10,6 +14,45 @@ export default {
   name: 'RankingBoard',
   data() {
     return {
+      company: [
+        {
+          label: "总体",
+          active: true
+        }, {
+          label: "企业1",
+          active: false
+        }, {
+          label: "企业2",
+          active: false
+        }, {
+          label: "企业3",
+          active: false
+        }, {
+          label: "企业4",
+          active: false
+        }, {
+          label: "企业5",
+          active: false
+        }, {
+          label: "企业6",
+          active: false
+        }, {
+          label: "企业7",
+          active: false
+        }, {
+          label: "企业8",
+          active: false
+        }, {
+          label: "企业9",
+          active: false
+        }, {
+          label: "企业10",
+          active: false
+        }, {
+          label: "企业11",
+          active: false
+        }
+      ],
       config: {
         data: [
           {
@@ -52,13 +95,34 @@ export default {
         rowNum: 9
       }
     }
+  },
+  methods: {
+    activeItem(label){
+      this.company.forEach(item=>{
+        item.active = false
+      })
+      this.company.find(item=>{
+        return item.label === label
+      }).active = true
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
+.company div {
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.active {
+  color: #03d3ec;
+}
+
 #ranking-board {
-  width: 20%;
+  width: 15%;
+  height: 510px;
   box-shadow: 0 0 3px blue;
   display: flex;
   flex-direction: column;
@@ -69,7 +133,7 @@ export default {
 
   .ranking-board-title {
     font-weight: bold;
-    height: 50px;
+    height: 60px;
     display: flex;
     align-items: center;
     font-size: 20px;

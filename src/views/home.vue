@@ -4,20 +4,14 @@
             <div class="nav-box">
                 <el-menu :default-active="activeIndex" router background-color="#BE1329" text-color="#ffffff"
                     active-text-color='#DBBC83' class="el-menu-demo" mode="horizontal" @select="handleSelect">
-                    <el-menu-item index="1">首页</el-menu-item>
+                    <el-menu-item index="/">首页</el-menu-item>
                     <el-submenu index="6">
                         <template slot="title">发展历程</template>
                         <el-menu-item index="2-1">发展过程</el-menu-item>
                         <el-menu-item index="2-2">开发区定位</el-menu-item>
                         <el-menu-item index="2-2">荣誉资质</el-menu-item>
-                    </el-submenu>
-                    <el-submenu index="2">
-                        <template slot="title">经济概况</template>
                         <el-menu-item index="2-1">经济规模/企业数量</el-menu-item>
                         <el-menu-item index="2-2">经济特色</el-menu-item>
-                    </el-submenu>
-                    <el-submenu index="3">
-                        <template slot="title">特色优势</template>
                         <el-menu-item index="3-1">资源优势</el-menu-item>
                         <el-menu-item index="3-2">交通优势</el-menu-item>
                         <el-menu-item index="3-3">产业优势</el-menu-item>
@@ -29,15 +23,12 @@
                         <el-menu-item index="4-2">侯北产业园</el-menu-item>
                         <el-menu-item index="4-3">浍南产业园</el-menu-item>
                         <el-menu-item index="4-4">CBD商务区</el-menu-item>
-                    </el-submenu>
-                    <el-submenu index="5">
-                        <template slot="title">重点企业</template>
                         <el-menu-item index="5-1">装备制造</el-menu-item>
                         <el-menu-item index="5-2">金属材料</el-menu-item>
                         <el-menu-item index="5-3">生物医药</el-menu-item>
                         <el-menu-item index="5-4">军工装备</el-menu-item>
                     </el-submenu>
-                    <el-menu-item index="/demo1">经济运行全景图</el-menu-item>
+                    <el-menu-item index="/demo1">经济运行动态监测</el-menu-item>
                     <el-menu-item index="/demo2">重大项目建设管理</el-menu-item>
                 </el-menu>
             </div>
@@ -64,7 +55,9 @@
             </div>
         </div>
         <div class="demo">
-            侯马晋级开发区动态展示模块
+            <div>
+                侯马晋级开发区动态展示模块
+            </div>
         </div>
         <!-- <div class="middle">
             <div class="icon-box">
@@ -252,13 +245,17 @@
 <style lang="less" scoped>
 .demo {
     width: 1120px;
-    line-height: 400px;
     text-align: center;
     margin-top: 50px;
     background: rgb(209, 209, 209);
     font-weight: bold;
     font-size: 24px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
 /deep/.el-menu.el-menu--horizontal {
@@ -274,6 +271,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
 }
 
 .red {

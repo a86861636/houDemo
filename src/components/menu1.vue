@@ -1,17 +1,10 @@
 <template>
-    <el-menu style="width: 250px;height: 100%;" router default-active="2" class="el-menu-vertical-demo" @open="handleOpen"
-        @close="handleClose" background-color="#071B40" text-color="#fff" active-text-color="#ffd04b">
-        <!-- <el-submenu index="1">
-            <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>GDP指标</span>
-            </template>
-            <el-menu-item-group>
-                <el-menu-item index="1-1">指标总量</el-menu-item>
-                <el-menu-item index="1-2">同比增速</el-menu-item>
-                <el-menu-item index="1-2">环比增速</el-menu-item>
-            </el-menu-item-group>
-        </el-submenu> -->
+    <el-menu style="width: 250px;height: 100%;" router default-active="2" class="el-menu-vertical-demo"
+        background-color="#071B40" text-color="#fff" active-text-color="#ffd04b">
+        <el-menu-item index="/home">
+            <i class="el-icon-s-home"></i>
+            <span slot="title">首页</span>
+        </el-menu-item>
         <el-menu-item index="/demo1?type=1">
             <i class="el-icon-location"></i>
             <span slot="title">GDP指标</span>
@@ -51,6 +44,7 @@ export default {
 /deep/.el-menu-item-group__title {
     padding: 0px;
 }
+
 .el-menu {
     border-right: solid 0px #382121 !important;
 }

@@ -1,18 +1,21 @@
 <template>
   <div class="top-middle-cmp">
     <div class="chart-name">
-      设备完好率月趋势
+      设备完好率10月趋势
       <dv-decoration-3 style="width:200px;height:20px;" />
     </div>
     <dv-charts :option="option" />
+    <el-date-picker class="picker" size="mini" v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+    </el-date-picker>
   </div>
 </template>
 
 <script>
 export default {
   name: 'TopMiddleCmp',
-  data () {
+  data() {
     return {
+      value1: '',
       option: {
         legend: {
           data: ['设备完好率'],
@@ -55,7 +58,7 @@ export default {
             style: {
               fill: '#999'
             },
-            formatter ({ value }) {
+            formatter({ value }) {
               return value.toFixed(2)
             }
           },
@@ -97,8 +100,12 @@ export default {
 <style lang="less" scoped>
 .top-middle-cmp {
   position: relative;
-  padding: 0 50px;
+  padding: 0 50px 40px 50px;
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(6, 30, 93, 0.5);
+  border-top: 2px solid rgba(1, 153, 209, .5);
 
   .chart-name {
     position: absolute;
@@ -107,5 +114,11 @@ export default {
     font-size: 20px;
     top: 10px;
   }
+}
+.picker{
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 </style>

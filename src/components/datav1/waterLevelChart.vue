@@ -1,6 +1,6 @@
 <template>
   <div id="water-level-chart">
-    <div class="water-level-chart-title">计划资金累计完成情况</div>
+    <!-- <div class="water-level-chart-title">计划资金累计完成情况</div> -->
 
     <div class="water-level-chart-details">
       累计完成<span>235,680</span>元
@@ -30,9 +30,11 @@ export default {
 
 <style lang="less" scoped>
 #water-level-chart {
-  width: 20%;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
   box-sizing: border-box;
-  margin-left: 20px;
+  margin-left: 0px;
   background-color: rgba(6, 30, 93, 0.5);
   border-top: 2px solid rgba(1, 153, 209, .5);
   display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div class="right-chart-2">
-    <div class="rc1-header">孙七收费站</div>
+    <!-- <div class="rc1-header">孙七收费站</div> -->
 
     <div class="rc1-chart-container">
       <div class="left">
@@ -52,10 +52,13 @@ export default {
 
 <style lang="less" scoped>
 .right-chart-2 {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 30, 93, 0.5);
+  border-top: 2px solid rgba(1, 153, 209, .5);
+  box-sizing: border-box;
 
   .rc1-header {
     font-size: 24px;
@@ -87,8 +90,6 @@ export default {
 
   .right {
     flex: 1;
-    padding-bottom: 20px;
-    padding-right: 20px;
     box-sizing: border-box;
   }
 }

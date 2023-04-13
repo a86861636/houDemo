@@ -33,6 +33,11 @@ export default new Router({
       ]
     },
     {
+      path: "/demo3",
+      name: "demo3",
+      component: () => import("./views/demo3.vue")
+    },
+    {
       path: "/home",
       name: "home",
       component: () => import("./views/home.vue")
