@@ -25,13 +25,9 @@
 </template>
 
 <script>
-import topHeader from './topHeader'
-import digitalFlop from './digitalFlop'
 import rankingBoard from './rankingBoard'
 import roseChart from './roseChart'
 import waterLevelChart from './waterLevelChart'
-import scrollBoard from './scrollBoard'
-import cards from './cards'
 import RightChart2 from '../datav2/RightChart2'
 import TopMiddleCmp from '../datav3/TopMiddleCmp.vue'
 export default {
@@ -39,13 +35,9 @@ export default {
   components: {
     TopMiddleCmp,
     RightChart2,
-    topHeader,
-    digitalFlop,
     rankingBoard,
     roseChart,
     waterLevelChart,
-    scrollBoard,
-    cards
   },
   data() {
     return {

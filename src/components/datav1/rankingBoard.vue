@@ -97,13 +97,16 @@ export default {
     }
   },
   methods: {
-    activeItem(label){
-      this.company.forEach(item=>{
+    activeItem(label) {
+      this.company.forEach(item => {
         item.active = false
       })
-      this.company.find(item=>{
+      this.company.find(item => {
         return item.label === label
       }).active = true
+      this.$router.push({
+        query: {...this.$route.query, company: label}
+      })
     }
   }
 }

@@ -67,6 +67,23 @@ export default {
     createData()
 
     setInterval(createData, 30000)
+  },
+  watch: {
+    '$route'() {
+      const { randomExtend } = this
+      this.option.series[0].data = [
+        { name: '路基', value: randomExtend(40, 70) },
+        { name: '交安设施', value: randomExtend(20, 30) },
+        { name: '日常养护', value: randomExtend(10, 50) },
+        { name: '桥通', value: randomExtend(5, 20) },
+        { name: '交通事故', value: randomExtend(40, 50) },
+        { name: '路面', value: randomExtend(20, 30) },
+        { name: '绿化', value: randomExtend(5, 10) },
+        { name: '计日工', value: randomExtend(20, 35) },
+        { name: '除雪', value: randomExtend(5, 10) }
+      ]
+      this.option = { ...this.option }
+    }
   }
 }
 </script>

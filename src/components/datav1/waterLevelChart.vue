@@ -3,7 +3,7 @@
     <!-- <div class="water-level-chart-title">计划资金累计完成情况</div> -->
 
     <div class="water-level-chart-details">
-      累计完成<span>235,680</span>元
+      累计完成<span>{{ money }}</span>元
     </div>
 
     <div class="chart-container">
@@ -22,7 +22,15 @@ export default {
         shape: 'round',
         waveHeight: 25,
         waveNum: 2
-      }
+      },
+      money: '235,680'
+    }
+  },
+  watch: {
+    '$route'() {
+      this.money = `${(Math.random() * 800 + 100).toFixed(0)},${(Math.random() * 800 + 100).toFixed(0)}`
+      this.config.data[0] = (Math.random() * 100).toFixed(0)
+      this.config = { ...this.config }
     }
   }
 }

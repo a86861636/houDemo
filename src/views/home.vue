@@ -3,34 +3,18 @@
         <div class="red">
             <div class="nav-box">
                 <el-menu :default-active="activeIndex" router background-color="#BE1329" text-color="#ffffff"
-                    active-text-color='#DBBC83' class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                    active-text-color='#DBBC83' class="el-menu-demo" mode="horizontal">
                     <el-menu-item index="/">首页</el-menu-item>
-                    <el-submenu index="6">
-                        <template slot="title">发展历程</template>
-                        <el-menu-item index="2-1">发展过程</el-menu-item>
-                        <el-menu-item index="2-2">开发区定位</el-menu-item>
-                        <el-menu-item index="2-2">荣誉资质</el-menu-item>
-                        <el-menu-item index="2-1">经济规模/企业数量</el-menu-item>
-                        <el-menu-item index="2-2">经济特色</el-menu-item>
-                        <el-menu-item index="3-1">资源优势</el-menu-item>
-                        <el-menu-item index="3-2">交通优势</el-menu-item>
-                        <el-menu-item index="3-3">产业优势</el-menu-item>
-                        <el-menu-item index="3-4">政策优势</el-menu-item>
-                    </el-submenu>
-                    <el-submenu index="4">
-                        <template slot="title">园区概况</template>
-                        <el-menu-item index="4-1">香邑产业园</el-menu-item>
-                        <el-menu-item index="4-2">侯北产业园</el-menu-item>
-                        <el-menu-item index="4-3">浍南产业园</el-menu-item>
-                        <el-menu-item index="4-4">CBD商务区</el-menu-item>
-                        <el-menu-item index="5-1">装备制造</el-menu-item>
-                        <el-menu-item index="5-2">金属材料</el-menu-item>
-                        <el-menu-item index="5-3">生物医药</el-menu-item>
-                        <el-menu-item index="5-4">军工装备</el-menu-item>
-                    </el-submenu>
-                    <el-menu-item index="/demo1">经济运行动态监测</el-menu-item>
-                    <el-menu-item index="/demo2">重大项目建设管理</el-menu-item>
+                    <el-menu-item index="/view1">经济概况</el-menu-item>
+                    <el-menu-item index="/view2">园区概况</el-menu-item>
+                    <el-menu-item v-if="username === 'admin'" index="/demo1">经济运行动态监测</el-menu-item>
+                    <el-menu-item v-if="username === 'admin'" index="/demo2">重大项目建设管理</el-menu-item>
                 </el-menu>
+                <div class="login-status">
+                    <span style="cursor: pointer;" v-if="!username" @click="toLogin">登录</span>
+                    <span v-else>{{ username }} <span style="cursor: pointer; white-space: nowrap;"
+                            @click="logout">注销</span></span>
+                </div>
             </div>
             <div class="car-box">
                 <el-carousel class="car" indicator-position="outside">
@@ -239,12 +223,39 @@
 </template>
   
 <script>
-
+export default {
+    name: 'home',
+    components: {
+    },
+    data() {
+        return {
+            activeIndex: ''
+        }
+    },
+    computed: {
+        username() {
+            return this.$store.state.userInfo.username
+        }
+    },
+    mounted() {
+        console.log(this.username)
+    },
+    watch: {
+    },
+    methods: {
+        toLogin() {
+            this.$router.push('/login')
+        },
+        logout() {
+            this.$store.dispatch('logout')
+        }
+    },
+}
 </script>
   
 <style lang="less" scoped>
 .demo {
-    width: 1120px;
+    width: 1200px;
     text-align: center;
     margin-top: 50px;
     background: rgb(209, 209, 209);
@@ -287,7 +298,7 @@
 .middle {
     display: flex;
     flex-direction: row;
-    width: 1120px;
+    width: 1200px;
     margin: 40px 0 0 0;
 }
 
@@ -295,7 +306,17 @@
 .car-box {
     display: flex;
     // align-items: center;
-    width: 1120px;
+    width: 1200px;
+}
+
+.nav-box {
+    justify-content: space-between;
+}
+
+.login-status {
+    color: white;
+    font-weight: bold;
+    line-height: 60px;
 }
 
 .el-menu-demo {
@@ -309,11 +330,11 @@
 }
 
 .car {
-    width: 550px;
+    width: 610px;
 }
 
 .news {
-    width: 500px;
+    width: 540px;
     margin-left: 50px;
     color: white;
     position: relative;
@@ -517,7 +538,7 @@
     display: flex;
     flex-direction: row;
     margin: 30px 0 0 0;
-    width: 1120px;
+    width: 1200px;
 }
 
 .message {

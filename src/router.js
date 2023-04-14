@@ -11,6 +11,16 @@ export default new Router({
       redirect: "/home",
     },
     {
+      path: "/view1",
+      name: "view1",
+      component: () => import("./views/view1.vue")
+    },
+    {
+      path: "/view2",
+      name: "view2",
+      component: () => import("./views/view2.vue")
+    },
+    {
       path: "/demo1",
       component: () => import("./views/layout1.vue"),
       children: [
@@ -41,6 +51,11 @@ export default new Router({
       path: "/home",
       name: "home",
       component: () => import("./views/home.vue")
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("./views/login.vue")
     },
   ]
 });

@@ -5,7 +5,8 @@
       <dv-decoration-3 style="width:200px;height:20px;" />
     </div>
     <dv-charts :option="option" />
-    <el-date-picker class="picker" size="mini" v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+    <el-date-picker class="picker" size="mini" v-model="value1" type="daterange" range-separator="至"
+      start-placeholder="开始日期" end-placeholder="结束日期">
     </el-date-picker>
   </div>
 </template>
@@ -65,16 +66,16 @@ export default {
           axisTick: {
             show: false
           },
-          min: 95,
+          min: 0,
           max: 100,
-          interval: 0.5
+          interval: 20
         },
         series: [
           {
             data: [
-              99.56, 99.66, 99.84, 99.22, 99.11, 99.45,
-              99.44, 99.81, 99.84, 99.32, 99.14, 99.45,
-              99.15, 99.45, 99.64, 99.89
+              Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
+              Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
+              Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
             ],
             type: 'line',
             name: '设备完好率',
@@ -92,6 +93,16 @@ export default {
           }
         ]
       }
+    }
+  },
+  watch: {
+    '$route'() {
+      this.option.series[0].data = [
+        Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
+        Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
+        Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
+      ]
+      this.option = { ...this.option }
     }
   }
 }
@@ -115,10 +126,11 @@ export default {
     top: 10px;
   }
 }
-.picker{
-    position: absolute;
-    bottom: 1px;
-    left: 50%;
-    transform: translate(-50%,-50%);
+
+.picker {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
