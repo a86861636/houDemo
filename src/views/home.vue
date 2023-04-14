@@ -7,8 +7,8 @@
                     <el-menu-item index="/">首页</el-menu-item>
                     <el-menu-item index="/view1">经济概况</el-menu-item>
                     <el-menu-item index="/view2">园区概况</el-menu-item>
-                    <el-menu-item v-if="username === 'admin'" index="/demo1">经济运行动态监测</el-menu-item>
-                    <el-menu-item v-if="username === 'admin'" index="/demo2">重大项目建设管理</el-menu-item>
+                    <el-menu-item index="/demo1">经济运行动态监测</el-menu-item>
+                    <el-menu-item index="/demo2">重大项目建设管理</el-menu-item>
                 </el-menu>
                 <div class="login-status">
                     <span style="cursor: pointer;" v-if="!username" @click="toLogin">登录</span>
@@ -40,7 +40,17 @@
         </div>
         <div class="demo">
             <div>
-                侯马晋级开发区动态展示模块
+                发展过程模块
+            </div>
+        </div>
+        <div class="demo">
+            <div>
+                开发区定位模块
+            </div>
+        </div>
+        <div class="demo">
+            <div>
+                荣誉资质模块
             </div>
         </div>
         <!-- <div class="middle">
@@ -267,6 +277,7 @@ export default {
     align-items: center;
     justify-content: center;
     flex: 1;
+    min-height: 500px;
 }
 
 /deep/.el-menu.el-menu--horizontal {

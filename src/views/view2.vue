@@ -5,14 +5,9 @@
                 <el-menu :default-active="activeIndex" router background-color="#BE1329" text-color="#ffffff"
                     active-text-color='#DBBC83' class="el-menu-demo" mode="horizontal">
                     <el-menu-item index="/">首页</el-menu-item>
-                    <el-menu-item index="/view2?type=2">香邑产业园</el-menu-item>
-                    <el-menu-item index="/view2?type=3">侯北产业园</el-menu-item>
-                    <el-menu-item index="/view2?type=4">浍南产业园</el-menu-item>
-                    <el-menu-item index="/view2?type=5">CBD商务区</el-menu-item>
-                    <el-menu-item index="/view2?type=6">装备制造</el-menu-item>
-                    <el-menu-item index="/view2?type=7">金属材料</el-menu-item>
-                    <el-menu-item index="/view2?type=8">生物医药</el-menu-item>
-                    <el-menu-item index="/view2?type=9">军工装备</el-menu-item>
+                    <el-menu-item v-for="(item, index) in titleArr" :key="index" :index="'view1?title=' + (index + 1)">{{
+                        item
+                    }}</el-menu-item>
                 </el-menu>
                 <div class="login-status">
                     <span style="cursor: pointer;" v-if="!username" @click="toLogin">登录</span>
@@ -21,9 +16,9 @@
                 </div>
             </div>
         </div>
-        <div class="demo">
+        <div v-for="(item, index) in titleArr" :key="index" class="demo" :id="'title'+(index + 1)">
             <div>
-                {{ title + ' 动态展示模块' }}
+                {{ item + ' 模块' }}
             </div>
         </div>
         <div class="down">
@@ -41,17 +36,16 @@ export default {
     data() {
         return {
             activeIndex: '',
-            titleDir: {
-                '1': '园区概况',
-                '2': '香邑产业园',
-                '3': '侯北产业园',
-                '4': '浍南产业园',
-                '5': 'CBD商务区',
-                '6': '装备制造',
-                '7': '金属材料',
-                '8': '生物医药',
-                '9': '军工装备',
-            },
+            titleArr: [
+                '香邑产业园',
+                '侯北产业园',
+                '浍南产业园',
+                'CBD商务区',
+                '装备制造',
+                '金属材料',
+                '生物医药',
+                '军工装备',
+            ],
             type: '1'
         }
     },
@@ -69,7 +63,16 @@ export default {
         '$route.query': {
             immediate: true,
             handler(val) {
-                this.type = val.type ? val.type : "1"
+                if (val.title) {
+                    this.$nextTick(() => {
+                        const top = document.getElementById('title' + val.title).offsetTop
+                        window.scrollTo({
+                            top: top,
+                            left: 0,
+                            behavior: 'smooth'
+                        })
+                    })
+                }
             }
         }
     },
@@ -97,7 +100,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex: 1;
+    height: 500px;
 }
 
 /deep/.el-menu.el-menu--horizontal {

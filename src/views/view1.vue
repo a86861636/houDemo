@@ -5,12 +5,9 @@
                 <el-menu :default-active="activeIndex" router background-color="#BE1329" text-color="#ffffff"
                     active-text-color='#DBBC83' class="el-menu-demo" mode="horizontal">
                     <el-menu-item index="/">首页</el-menu-item>
-                    <el-menu-item index="/view1?type=2">经济规模/企业数量</el-menu-item>
-                    <el-menu-item index="/view1?type=3">经济特色</el-menu-item>
-                    <el-menu-item index="/view1?type=4">资源优势</el-menu-item>
-                    <el-menu-item index="/view1?type=5">交通优势</el-menu-item>
-                    <el-menu-item index="/view1?type=6">产业优势</el-menu-item>
-                    <el-menu-item index="/view1?type=7">政策优势</el-menu-item>
+                    <el-menu-item v-for="(item, index) in titleArr" :key="index" :index="'view1?title=' + (index + 1)">{{
+                        item
+                    }}</el-menu-item>
                 </el-menu>
                 <div class="login-status">
                     <span style="cursor: pointer;" v-if="!username" @click="toLogin">登录</span>
@@ -19,9 +16,9 @@
                 </div>
             </div>
         </div>
-        <div class="demo">
+        <div v-for="(item, index) in titleArr" :key="index" class="demo" :id="'title'+(index + 1)">
             <div>
-                {{ title + ' 动态展示模块' }}
+                {{ item + ' 模块' }}
             </div>
         </div>
         <div class="down">
@@ -39,15 +36,15 @@ export default {
     data() {
         return {
             activeIndex: '',
-            titleDir: {
-                '1': '经济概况',
-                '2': '经济规模/企业数量',
-                '3': '经济特色',
-                '4': '资源优势',
-                '5': '交通优势',
-                '6': '产业优势',
-                '7': '政策优势',
-            },
+            titleArr: [
+                // '经济概况',
+                '经济规模/企业数量',
+                '经济特色',
+                '资源优势',
+                '交通优势',
+                '产业优势',
+                '政策优势',
+            ],
             type: '1'
         }
     },
@@ -55,9 +52,6 @@ export default {
         username() {
             return this.$store.state.userInfo.username
         },
-        title() {
-            return this.titleDir[this.type]
-        }
     },
     mounted() {
     },
@@ -65,7 +59,16 @@ export default {
         '$route.query': {
             immediate: true,
             handler(val) {
-                this.type = val.type ? val.type : "1"
+                if (val.title) {
+                    this.$nextTick(() => {
+                        const top = document.getElementById('title'+val.title).offsetTop
+                        window.scrollTo({
+                            top: top,
+                            left: 0,
+                            behavior: 'smooth'
+                        })
+                    })
+                }
             }
         }
     },
@@ -93,7 +96,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex: 1;
+    height: 500px;
 }
 
 /deep/.el-menu.el-menu--horizontal {

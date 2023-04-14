@@ -51,6 +51,9 @@ export default {
     }
   },
   computed: {
+    username() {
+      return this.$store.state.userInfo.username
+    },
     moduleList() {
       return this.allData[this.type].module
     },
@@ -59,6 +62,14 @@ export default {
     }
   },
   mounted() {
+    if (!this.username) {
+      this.$message({
+        message: '请先登录',
+        type: 'warning',
+        showClose: true,
+      })
+      this.$router.push('/login')
+    }
     const { path } = this.$route
     if (path === '/demo1') {
       this.allData = {
@@ -144,7 +155,7 @@ export default {
           ]
         }
       }
-    }else if(path === '/demo2') {
+    } else if (path === '/demo2') {
       this.allData = {
         '1': {
           label: '项目概况',
