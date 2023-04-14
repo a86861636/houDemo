@@ -140,7 +140,7 @@ export default {
               label: '企业数量及增速',
               com: 'water-level-chart'
             }, {
-              label: '产业规模',
+              label: '产业规模/企业规模排序',
               com: 'rose-chart'
             }, {
               label: '产业结构占比',
@@ -155,14 +155,17 @@ export default {
           label: 'N年经济目标',
           module: [
             {
-              label: '目标完成情况',
+              label: '经济增长目标完成情况',
               com: 'water-level-chart'
             }, {
-              label: '招商目标完成',
+              label: '企业数量目标/规上增速目标',
               com: 'rose-chart'
             }, {
-              label: '龙头企业经营情况',
+              label: '招商目标完成',
               com: 'TopMiddleCmp'
+            }, {
+              label: '龙头企业经营情况',
+              com: 'BottomLeftChart1'
             }
           ]
         }
