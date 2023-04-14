@@ -5,7 +5,7 @@
                 <el-menu :default-active="activeIndex" router background-color="#BE1329" text-color="#ffffff"
                     active-text-color='#DBBC83' class="el-menu-demo" mode="horizontal">
                     <el-menu-item index="/">首页</el-menu-item>
-                    <el-menu-item v-for="(item, index) in titleArr" :key="index" :index="'view1?title=' + (index + 1)">{{
+                    <el-menu-item v-for="(item, index) in titleArr" :key="index" :index="'view2?title=' + (index + 1)">{{
                         item
                     }}</el-menu-item>
                 </el-menu>
