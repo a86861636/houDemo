@@ -26,9 +26,16 @@
             <i class="el-icon-view"></i>
           </span> -->
             </el-form-item>
+            <div>
 
-            <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;"
-                @click.native.prevent="handleLogin">登录</el-button>
+                <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;"
+                    @click.native.prevent="handleLogin">登录</el-button>
+            </div>
+            <div>
+
+                <el-button :loading="loading" style="width:100%;margin-bottom:30px;"
+                    @click.native.prevent="toHome">返回首页</el-button>
+            </div>
 
         </el-form>
     </div>
@@ -83,6 +90,9 @@ export default {
         }
     },
     methods: {
+        toHome() {
+            this.$router.push('/home')
+        },
         showPwd() { // 显示密码
             if (this.passwordType === 'password') {
                 this.passwordType = ''

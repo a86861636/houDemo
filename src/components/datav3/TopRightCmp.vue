@@ -158,6 +158,10 @@ export default {
   position: relative;
   padding: 0 50px;
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(6, 30, 93, 0.5);
+  border-top: 2px solid rgba(1, 153, 209, .5);
 
   .chart-name {
     position: absolute;

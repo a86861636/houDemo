@@ -1,7 +1,6 @@
 <template>
   <div class="bottom-left-chart-1">
-    <div class="header-name">机电设备完好率</div>
-    <div class="details-value"><span>99.01</span>%</div>
+    <!-- <div class="details-value"><span>99.01</span>%</div> -->
     <dv-charts :option="option" />
   </div>
 </template>
@@ -67,10 +66,12 @@ export default {
 <style lang="less" scoped>
 .bottom-left-chart-1 {
   position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(6, 30, 93, 0.5);
+  border-top: 2px solid rgba(1, 153, 209, .5);
 
   .header-name {
-    height: 150px;
-    line-height: 150px;
     font-size: 20px;
     text-align: center;
   }
@@ -88,7 +89,8 @@ export default {
   }
 
   .dv-charts-container {
-    height: calc(~"100% - 190px");
+    height: 100%;
+  width: 100%;  
   }
 
   .decoration-ring {
@@ -97,7 +99,7 @@ export default {
     height: 200px;
     border-radius: 50%;
     border: 5px solid fade(#fefefe, 30);
-    top: 190px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
   }

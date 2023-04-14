@@ -1,7 +1,7 @@
 <template>
   <div class="top-middle-cmp">
     <div class="chart-name">
-      设备完好率10月趋势
+      设备完好率{{options.num}}月趋势
       <dv-decoration-3 style="width:200px;height:20px;" />
     </div>
     <dv-charts :option="option" />
@@ -14,6 +14,15 @@
 <script>
 export default {
   name: 'TopMiddleCmp',
+  props:{
+    options: {
+      default: ()=>{
+        return {
+          num: 10
+        }
+      }
+    }
+  },
   data() {
     return {
       value1: '',
@@ -73,9 +82,9 @@ export default {
         series: [
           {
             data: [
-              Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
-              Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
-              Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
+              Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10,
+              Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10,
+              Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10,
             ],
             type: 'line',
             name: '设备完好率',
@@ -98,9 +107,9 @@ export default {
   watch: {
     '$route'() {
       this.option.series[0].data = [
-        Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
-        Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
-        Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100,
+        Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10,
+        Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10,
+        Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10, Math.random() * 90 +10,
       ]
       this.option = { ...this.option }
     }

@@ -1,5 +1,5 @@
 <template>
-  <div id="data-view1">
+  <div id="data-view1" :class="{bg1: path==='/demo1', bg2: path==='/demo2'}">
     <div class="main-header">
       <div class="mh-left">
       </div>
@@ -12,11 +12,11 @@
       <div class="block-left-right-content">
         <ranking-board />
         <div class="block-top-bottom-content">
-          <div class="module" v-for="item in moduleList">
+          <div v-for="item in moduleList" :class="{module: true, width100: item.width==='100%'}">
             <div class="title">
               {{ item.label }}
             </div>
-            <component :is="item.com"></component>
+            <component :is="item.com" :options="item.options"></component>
           </div>
         </div>
       </div>
@@ -30,6 +30,10 @@ import roseChart from './roseChart'
 import waterLevelChart from './waterLevelChart'
 import RightChart2 from '../datav2/RightChart2'
 import TopMiddleCmp from '../datav3/TopMiddleCmp.vue'
+import TopRightCmp from '../datav3/TopRightCmp'
+import BottomLeftChart1 from '../datav3/BottomLeftChart1'
+import TopLeftCmp from '../datav3/TopLeftCmp'
+import compare from '../compare'
 export default {
   name: 'DataView',
   components: {
@@ -38,6 +42,10 @@ export default {
     rankingBoard,
     roseChart,
     waterLevelChart,
+    TopRightCmp,
+    BottomLeftChart1,
+    TopLeftCmp,
+    compare
   },
   data() {
     return {
@@ -59,17 +67,20 @@ export default {
     },
     typeLabel() {
       return this.allData[this.type].label
+    },
+    path(){
+      return this.$route.path
     }
   },
   mounted() {
-    if (!this.username) {
-      this.$message({
-        message: '请先登录',
-        type: 'warning',
-        showClose: true,
-      })
-      this.$router.push('/login')
-    }
+    // if (!this.username) {
+    //   this.$message({
+    //     message: '请先登录',
+    //     type: 'warning',
+    //     showClose: true,
+    //   })
+    //   this.$router.push('/login')
+    // }
     const { path } = this.$route
     if (path === '/demo1') {
       this.allData = {
@@ -84,7 +95,8 @@ export default {
               com: 'rose-chart'
             }, {
               label: '同比增速',
-              com: 'TopMiddleCmp'
+              com: 'compare',
+              width: '100%'
             }
           ]
         },
@@ -117,7 +129,7 @@ export default {
               com: 'TopMiddleCmp'
             }, {
               label: '政策优势',
-              com: 'TopMiddleCmp'
+              com: 'BottomLeftChart1'
             }
           ]
         },
@@ -135,7 +147,7 @@ export default {
               com: 'TopMiddleCmp'
             }, {
               label: '战略新兴产业',
-              com: 'TopMiddleCmp'
+              com: 'BottomLeftChart1'
             }
           ]
         },
@@ -162,13 +174,13 @@ export default {
           module: [
             {
               label: '项目总投资额',
-              com: 'water-level-chart'
+              com: 'BottomLeftChart1'
             }, {
               label: '项目数量',
-              com: 'rose-chart'
+              com: 'TopLeftCmp'
             }, {
               label: '项目类别',
-              com: 'TopMiddleCmp'
+              com: 'TopRightCmp'
             }
           ]
         },
@@ -177,13 +189,13 @@ export default {
           module: [
             {
               label: '本年度建设目标',
-              com: 'water-level-chart'
+              com: 'BottomLeftChart1'
             }, {
               label: '年度目标进度',
-              com: 'rose-chart'
+              com: 'TopLeftCmp'
             }, {
               label: '分项目年度进度',
-              com: 'TopMiddleCmp'
+              com: 'TopRightCmp'
             }
           ]
         },
@@ -192,13 +204,13 @@ export default {
           module: [
             {
               label: '一产项目规模',
-              com: 'water-level-chart'
+              com: 'BottomLeftChart1'
             }, {
               label: '二产项目规模',
-              com: 'rose-chart'
+              com: 'TopLeftCmp'
             }, {
               label: '三产项目规模',
-              com: 'TopMiddleCmp'
+              com: 'TopRightCmp'
             }
           ]
         },
@@ -207,16 +219,16 @@ export default {
           module: [
             {
               label: '汽车零部件',
-              com: 'water-level-chart'
+              com: 'BottomLeftChart1'
             }, {
               label: '金属新材料',
-              com: 'rose-chart'
+              com: 'TopLeftCmp'
             }, {
               label: '石油钻具',
-              com: 'TopMiddleCmp'
+              com: 'TopRightCmp'
             }, {
               label: '生物医药',
-              com: 'TopMiddleCmp'
+              com: 'water-level-chart'
             }
           ]
         },
@@ -225,19 +237,19 @@ export default {
           module: [
             {
               label: '项目概要',
-              com: 'water-level-chart'
+              com: 'BottomLeftChart1'
             }, {
               label: '地理位置',
-              com: 'rose-chart'
+              com: 'TopLeftCmp'
             }, {
               label: '项目性质',
-              com: 'TopMiddleCmp'
+              com: 'TopRightCmp'
             }, {
               label: '总投资及累计完成投资',
-              com: 'TopMiddleCmp'
+              com: 'water-level-chart'
             }, {
               label: '项目建设阶段',
-              com: 'TopMiddleCmp'
+              com: 'rose-chart'
             }, {
               label: '项目建设预警',
               com: 'TopMiddleCmp'
@@ -278,7 +290,6 @@ export default {
   width: 100%;
   background-color: #030409;
   color: #fff;
-  background-image: url('./img/bg.png');
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -341,5 +352,14 @@ export default {
       white-space: nowrap;
     }
   }
+}
+.bg1{
+  background-image: url('./img/bg.png');
+}
+.bg2{
+  background-image: url('./img/bg3.png');
+}
+.width100{
+  width: 98%;
 }
 </style>
