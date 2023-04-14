@@ -48,8 +48,8 @@ export default new Vuex.Store({
           },
           data: data
         }).then(res => {
-          if (res.data.token) {
-            resolve(res.data)
+          if (res.data.code===200) {
+            resolve(res.data.data)
           } else {
             reject(new Error(res.data))
           }
