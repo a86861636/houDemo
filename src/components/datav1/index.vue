@@ -73,14 +73,14 @@ export default {
     }
   },
   mounted() {
-    // if (!this.username) {
-    //   this.$message({
-    //     message: '请先登录',
-    //     type: 'warning',
-    //     showClose: true,
-    //   })
-    //   this.$router.push('/login')
-    // }
+    if (!this.username) {
+      this.$message({
+        message: '请先登录',
+        type: 'warning',
+        showClose: true,
+      })
+      this.$router.push('/login')
+    }
     const { path } = this.$route
     if (path === '/demo1') {
       this.allData = {
@@ -91,7 +91,7 @@ export default {
               label: '指标总量',
               com: 'water-level-chart'
             }, {
-              label: '同比增速',
+              label: '环比增速',
               com: 'rose-chart'
             }, {
               label: '同比增速',
@@ -283,6 +283,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2.5vh;
 }
 
 #data-view1 {
