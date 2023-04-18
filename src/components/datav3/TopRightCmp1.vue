@@ -21,7 +21,7 @@ export default {
               color: '#00baff'
             },
             {
-              name: '增速',
+              name: 'GDP1',
               color: '#ff5ca9'
             },
             {
@@ -84,24 +84,16 @@ export default {
             ],
             type: 'bar',
             barStyle: {
-              fill: 'rgba(0, 186, 255, 0.4)'
+              fill: 'rgba(0, 186, 255, 0.9)'
             }
-          },
-          {
-            name: '增速',
+          },{
+            name: 'GDP1',
             data: [
             Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1,
             ],
-            type: 'line',
-            lineStyle: {
-              stroke: '#ff5ca9'
-            },
-            linePoint: {
-              radius: 4,
-              style: {
-                fill: '#ff5ca9',
-                stroke: 'transparent'
-              }
+            type: 'bar',
+            barStyle: {
+              fill: 'rgba(255, 92, 169, 0.9)'
             }
           },
         ]

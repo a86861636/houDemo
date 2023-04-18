@@ -21,10 +21,19 @@ export default new Router({
       component: () => import("./views/view2.vue")
     },
     {
-      path: "/demo1",
+      path: "/view3",
+      name: "view3",
+      component: () => import("./views/view3.vue")
+    },
+    {
+      path: "/gdp",
       component: () => import("./views/layout1.vue"),
       children: [
         {
+          path: "/gdp",
+          name: "gdp",
+          component: () => import("./views/gdp.vue")
+        },{
           path: "/demo1",
           name: "demo1",
           component: () => import("./views/demo1.vue")

@@ -115,7 +115,8 @@ export default {
                     this.$store.dispatch('post', data).then((res) => {
                         this.$message({
                             message: '登录成功',
-                            type: 'success'
+                            type: 'success',
+                            showClose: true,
                         })
                         this.$store.dispatch('login', res)
                         this.$router.push('/home')

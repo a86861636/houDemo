@@ -10,7 +10,7 @@
 
     <div class="main-content">
       <div class="block-left-right-content">
-        <ranking-board />
+        <!-- <ranking-board /> -->
         <div class="block-top-bottom-content">
           <div v-for="item in moduleList" :class="{module: true, width100: item.width==='100%'}">
             <div class="title">
@@ -31,6 +31,7 @@ import waterLevelChart from './waterLevelChart'
 import RightChart2 from '../datav2/RightChart2'
 import TopMiddleCmp from '../datav3/TopMiddleCmp.vue'
 import TopRightCmp from '../datav3/TopRightCmp'
+import TopRightCmp1 from '../datav3/TopRightCmp1'
 import BottomLeftChart1 from '../datav3/BottomLeftChart1'
 import TopLeftCmp from '../datav3/TopLeftCmp'
 import compare from '../compare'
@@ -43,6 +44,7 @@ export default {
     roseChart,
     waterLevelChart,
     TopRightCmp,
+    TopRightCmp1,
     BottomLeftChart1,
     TopLeftCmp,
     compare
@@ -88,30 +90,40 @@ export default {
           label: 'GDP指标',
           module: [
             {
-              label: '指标总量',
+              label: '经济总规模',
               com: 'water-level-chart'
             }, {
-              label: '环比增速',
+              label: '产业结构',
               com: 'rose-chart'
             }, {
-              label: '同比增速',
-              com: 'compare',
-              width: '100%'
-            }
+              label: '历年GDP情况',
+              com: 'TopRightCmp'
+            }, {
+              label: '工业GDP及增速',
+              com: 'TopRightCmp'
+            },
+            //  {
+            //   label: '历年GDP情况',
+            //   com: 'compare',
+            //   width: '100%'
+            // }
           ]
         },
         '2': {
           label: 'GDP对比指标',
           module: [
             {
-              label: '临汾开发区排序',
-              com: 'water-level-chart'
+              label: '临汾市工业开发区GDP对比（万元 ）',
+              com: 'TopRightCmp1'
             }, {
-              label: '全省开发区排序',
-              com: 'rose-chart'
+              label: '临汾市工业开发区GDP增速对比（% ）',
+              com: 'TopRightCmp1'
             }, {
-              label: '全省开发区增速排序',
-              com: 'TopMiddleCmp'
+              label: '全省工业开发区GDO对比',
+              com: 'TopRightCmp1'
+            }, {
+              label: '全省工业开发区GDO增速对比（%）',
+              com: 'TopRightCmp1'
             }
           ]
         },

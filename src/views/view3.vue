@@ -11,23 +11,17 @@
         <div class="content">
             <el-menu style="width: 230px;height: 100%;" :default-active="activeIndex"
                 background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" @select="handleSelect">
-                <el-menu-item index="经济规模/企业数量">
-                    <span slot="title">经济规模/企业数量</span>
+                <el-menu-item index="装备制造">
+                    <span slot="title">装备制造</span>
                 </el-menu-item>
-                <el-menu-item index="经济特色">
-                    <span slot="title">经济特色</span>
+                <el-menu-item index="金属材料">
+                    <span slot="title">金属材料</span>
                 </el-menu-item>
-                <el-menu-item index="资源优势">
-                    <span slot="title">资源优势</span>
+                <el-menu-item index="生物医药">
+                    <span slot="title">生物医药</span>
                 </el-menu-item>
-                <el-menu-item index="交通优势">
-                    <span slot="title">交通优势</span>
-                </el-menu-item>
-                <el-menu-item index="产业优势">
-                    <span slot="title">产业优势</span>
-                </el-menu-item>
-                <el-menu-item index="政策优势">
-                    <span slot="title">政策优势</span>
+                <el-menu-item index="军工装备">
+                    <span slot="title">军工装备</span>
                 </el-menu-item>
             </el-menu>
             <div class="box">
@@ -53,8 +47,8 @@ export default {
     },
     data() {
         return {
-            activeIndex: '经济规模/企业数量',
-            title: '经济规模/企业数量',
+            activeIndex: '装备制造',
+            title: '装备制造',
         }
     },
     computed: {

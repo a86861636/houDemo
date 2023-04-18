@@ -1,20 +1,14 @@
 <template>
-    <div class="box">
-        <div class="menu">
-            <tMenu />
-        </div>
-
-        <router-view></router-view>
-    </div>
+   <datav />
 </template>
   
 <script>
-import tMenu from '../components/menu1.vue'
+import datav from '../components/gdp/index.vue'
 
 export default {
     name: 'app',
     components: {
-        tMenu
+        datav,
     },
     data() {
         return {}
