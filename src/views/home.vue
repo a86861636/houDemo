@@ -11,7 +11,7 @@
             </div>
             <div class="item" style="width: 65%" @click="$router.push('/view2')">
                 <img src="../assets/img/home2.png">
-                园区特色
+                特色园区
             </div>
             <div class="item" style="width: 65%" @click="$router.push('/demo1')">
                 <img src="../assets/img/home3.png">经济运行动态监测
