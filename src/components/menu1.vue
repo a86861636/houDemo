@@ -45,10 +45,10 @@
                     <el-submenu index="/gdp?type=2&submenu=2&ssmenu=3">
                         <template slot="title">运城市</template>
                     </el-submenu>
-                    <el-submenu index="/gdp?type=2&submenu=2&ssmenu=3">
+                    <el-submenu index="/gdp?type=2&submenu=2&ssmenu=4">
                         <template slot="title">大同市</template>
                     </el-submenu>
-                    <el-submenu index="/gdp?type=2&submenu=2&ssmenu=3">
+                    <el-submenu index="/gdp?type=2&submenu=2&ssmenu=5">
                         <template slot="title">吕梁市</template>
                     </el-submenu>
                 </el-submenu>
