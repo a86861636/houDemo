@@ -1,6 +1,6 @@
 <template>
     <div class="menu">
-        <el-menu style="height: 100%" router default-active="/gdp?type=1&submenu=1&year=2022" class="el-menu-vertical-demo"
+        <el-menu style="height: 100%" router :default-active="activeNav" class="el-menu-vertical-demo"
             background-color="#071B40" text-color="#fff" active-text-color="#ffd04b">
             <el-menu-item index="/home">
                 <i class="el-icon-s-home"></i>
@@ -20,7 +20,7 @@
             </el-submenu>
             <el-submenu index="/gdp?type=2">
                 <template slot="title">
-            <i class="el-icon-menu"></i>GDP开发区对比</template>
+                    <i class="el-icon-menu"></i>GDP开发区对比</template>
                 <el-submenu index="/gdp?type=2&submenu=1">
                     <template slot="title">临汾市对比</template>
                     <el-menu-item index="/gdp?type=2&submenu=1&area=1">临汾市开发区名称1</el-menu-item>
@@ -57,10 +57,17 @@
                 <i class="el-icon-setting"></i>
                 <span slot="title">产业结构</span>
             </el-menu-item>
-            <el-menu-item index="/demo1?type=4">
-                <i class="el-icon-s-help"></i>
-                <span slot="title">规上企业</span>
-            </el-menu-item>
+            <el-submenu index="/demo1?type=4">
+                <template slot="title">
+                    <i class="el-icon-s-help"></i>
+                    规上企业
+                </template>
+                <el-menu-item index="/demo1?type=4&year=2022">汽车零配件</el-menu-item>
+                <el-menu-item index="/demo1?type=4&year=2021">石油钻具企业</el-menu-item>
+                <el-menu-item index="/demo1?type=4&year=2020">有色金属材料</el-menu-item>
+                <el-menu-item index="/demo1?type=4&year=2019">生物医药</el-menu-item>
+                <el-menu-item index="/demo1?type=4&year=2018">生产服务</el-menu-item>
+            </el-submenu>
             <el-menu-item index="/demo1?type=5">
                 <i class="el-icon-document"></i>
                 <span slot="title">N年经济目标</span>
@@ -76,7 +83,12 @@ export default {
     components: {
     },
     data() {
-        return {}
+        return {
+            activeNav: '/gdp?type=1&submenu=1&year=2022'
+        }
+    },
+    mounted(){
+        this.activeNav = this.$route.fullPath.indexOf('?')>-1 ? this.$route.fullPath : '/gdp?type=1&submenu=1&year=2022'
     }
 }
 </script>
@@ -95,7 +107,8 @@ export default {
     height: 100%;
     overflow-y: scroll;
 }
-.menu::-webkit-scrollbar {
+
+.menu::-webkit-scrollbar {
     width: 0px;
     // height: 10px; // 高度写不写，都不影响，因为会根据内容的长度自动计算
 }

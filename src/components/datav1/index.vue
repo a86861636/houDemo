@@ -1,5 +1,5 @@
 <template>
-  <div id="data-view1" :class="{bg1: path==='/demo1' || path==='/gdp', bg2: path==='/demo2'}">
+  <div id="data-view1" :class="{ bg1: path === '/demo1' || path === '/gdp', bg2: path === '/demo2' }">
     <div class="main-header">
       <div class="mh-left">
       </div>
@@ -12,7 +12,7 @@
       <div class="block-left-right-content">
         <ranking-board />
         <div class="block-top-bottom-content">
-          <div v-for="item in moduleList" :class="{module: true, width100: item.width==='100%'}">
+          <div v-for="item in moduleList" :class="{ module: true, width100: item.width === '100%' }">
             <div class="title">
               {{ item.label }}
             </div>
@@ -26,11 +26,13 @@
 
 <script>
 import rankingBoard from './rankingBoard'
-import roseChart from './roseChart'
+import roseChart from '../gdp/roseChart'
 import waterLevelChart from './waterLevelChart'
 import RightChart2 from '../datav2/RightChart2'
 import TopMiddleCmp from '../datav3/TopMiddleCmp.vue'
 import TopRightCmp from '../datav3/TopRightCmp'
+import TopRightCmp1 from '../datav3/TopRightCmp1'
+import TopRightCmp2 from '../datav3/TopRightCmp2'
 import BottomLeftChart1 from '../datav3/BottomLeftChart1'
 import TopLeftCmp from '../datav3/TopLeftCmp'
 import compare from '../compare'
@@ -43,6 +45,8 @@ export default {
     roseChart,
     waterLevelChart,
     TopRightCmp,
+    TopRightCmp1,
+    TopRightCmp2,
     BottomLeftChart1,
     TopLeftCmp,
     compare
@@ -68,7 +72,7 @@ export default {
     typeLabel() {
       return this.allData[this.type].label
     },
-    path(){
+    path() {
       return this.$route.path
     }
   },
@@ -88,30 +92,40 @@ export default {
           label: 'GDP指标',
           module: [
             {
-              label: '指标总量',
+              label: '经济总规模',
               com: 'water-level-chart'
             }, {
-              label: '环比增速',
+              label: '产业结构',
               com: 'rose-chart'
             }, {
-              label: '同比增速',
-              com: 'compare',
-              width: '100%'
-            }
+              label: '历年GDP情况',
+              com: 'TopRightCmp'
+            }, {
+              label: '工业GDP及增速',
+              com: 'TopRightCmp'
+            },
+            //  {
+            //   label: '历年GDP情况',
+            //   com: 'compare',
+            //   width: '100%'
+            // }
           ]
         },
         '2': {
           label: 'GDP对比指标',
           module: [
             {
-              label: '临汾开发区排序',
-              com: 'water-level-chart'
+              label: '临汾市工业开发区GDP对比（万元 ）',
+              com: 'TopRightCmp1'
             }, {
-              label: '全省开发区排序',
-              com: 'rose-chart'
+              label: '临汾市工业开发区GDP增速对比（% ）',
+              com: 'TopRightCmp1'
             }, {
-              label: '全省开发区增速排序',
-              com: 'TopMiddleCmp'
+              label: '全省工业开发区GDO对比',
+              com: 'TopRightCmp1'
+            }, {
+              label: '全省工业开发区GDO增速对比（%）',
+              com: 'TopRightCmp1'
             }
           ]
         },
@@ -137,17 +151,34 @@ export default {
           label: '规上企业',
           module: [
             {
-              label: '企业数量及增速',
-              com: 'water-level-chart'
+              label: '企业数量',
+              com: 'rose-chart',
+              type: '总体',
             }, {
-              label: '产业规模/企业规模排序',
-              com: 'rose-chart'
+              label: '企业类型',
+              com: 'rose-chart',
+              type: '总体',
             }, {
-              label: '产业结构占比',
-              com: 'TopMiddleCmp'
+              label: '工业增加值（万元）',
+              com: 'TopRightCmp1',
+              type: '总体',
             }, {
-              label: '战略新兴产业',
-              com: 'BottomLeftChart1'
+              label: '工业总产值',
+              com: 'TopRightCmp1',
+              type: '总体',
+            },
+            {
+              label: '2023工业增加值',
+              com: 'TopRightCmp2'
+            }, {
+              label: '2023工业总产值（万元）',
+              com: 'TopRightCmp2'
+            }, {
+              label: '2023工业增值增速（%）',
+              com: 'TopRightCmp2'
+            }, {
+              label: '2023工业总产值增速（%）',
+              com: 'TopRightCmp2'
             }
           ]
         },
@@ -270,6 +301,7 @@ export default {
 }
 </script>
 
+
 <style lang="less" scoped>
 .title {
   width: 100%;
@@ -357,13 +389,15 @@ export default {
     }
   }
 }
-.bg1{
+
+.bg1 {
   background-image: url('./img/bg.png');
 }
-.bg2{
+
+.bg2 {
   background-image: url('./img/bg3.png');
 }
-.width100{
+
+.width100 {
   width: 98%;
-}
-</style>
+}</style>

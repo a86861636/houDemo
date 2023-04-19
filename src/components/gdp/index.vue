@@ -26,12 +26,13 @@
 
 <script>
 import rankingBoard from './rankingBoard'
-import roseChart from './roseChart'
+import roseChart from '../gdp/roseChart'
 import waterLevelChart from './waterLevelChart'
 import RightChart2 from '../datav2/RightChart2'
 import TopMiddleCmp from '../datav3/TopMiddleCmp.vue'
 import TopRightCmp from '../datav3/TopRightCmp'
 import TopRightCmp1 from '../datav3/TopRightCmp1'
+import TopRightCmp2 from '../datav3/TopRightCmp2'
 import BottomLeftChart1 from '../datav3/BottomLeftChart1'
 import TopLeftCmp from '../datav3/TopLeftCmp'
 import compare from '../compare'
@@ -45,6 +46,7 @@ export default {
     waterLevelChart,
     TopRightCmp,
     TopRightCmp1,
+    TopRightCmp2,
     BottomLeftChart1,
     TopLeftCmp,
     compare
@@ -70,7 +72,7 @@ export default {
     typeLabel() {
       return this.allData[this.type].label
     },
-    path(){
+    path() {
       return this.$route.path
     }
   },
@@ -149,17 +151,34 @@ export default {
           label: '规上企业',
           module: [
             {
-              label: '企业数量及增速',
-              com: 'water-level-chart'
+              label: '企业数量',
+              com: 'rose-chart',
+              type: '总体',
             }, {
-              label: '产业规模/企业规模排序',
-              com: 'rose-chart'
+              label: '企业类型',
+              com: 'rose-chart',
+              type: '总体',
             }, {
-              label: '产业结构占比',
-              com: 'TopMiddleCmp'
+              label: '工业增加值（万元）',
+              com: 'TopRightCmp1',
+              type: '总体',
             }, {
-              label: '战略新兴产业',
-              com: 'BottomLeftChart1'
+              label: '工业总产值',
+              com: 'TopRightCmp1',
+              type: '总体',
+            },
+            {
+              label: '2023工业增加值',
+              com: 'TopRightCmp2'
+            }, {
+              label: '2023工业总产值（万元）',
+              com: 'TopRightCmp2'
+            }, {
+              label: '2023工业增值增速（%）',
+              com: 'TopRightCmp2'
+            }, {
+              label: '2023工业总产值增速（%）',
+              com: 'TopRightCmp2'
             }
           ]
         },

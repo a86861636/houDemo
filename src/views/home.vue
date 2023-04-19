@@ -5,29 +5,21 @@
             <span v-else>{{ username }} <span style="cursor: pointer; white-space: nowrap;" @click="logout">注销</span></span>
         </div>
         <div class="box">
-            <div class="item" style="width: 31%" @click="$router.push('/view1')">
+            <div class="item bg1" style="width: 35%" @click="$router.push('/view1')">
                 <img src="../assets/img/home1.png">
                 开发区概况
             </div>
-            <div class="item" style="width: 65%" @click="$router.push('/view2')">
+            <div class="item bg2" style="width: 61%" @click="$router.push('/view2')">
                 <img src="../assets/img/home2.png">
                 特色园区
             </div>
-            <div class="item" style="width: 65%" @click="$router.push('/demo1')">
+            <div class="item bg3" style="width: 61%" @click="$router.push('/demo1')">
                 <img src="../assets/img/home3.png">经济运行动态监测
             </div>
-            <div class="item" style="width: 31%" @click="$router.push('/demo2')">
+            <div class="item bg4" style="width: 35%" @click="$router.push('/demo2')">
                 <img src="../assets/img/home4.png">重大建设项目管理
             </div>
         </div>
-        <!-- <div class="login-status">
-            <span style="cursor: pointer;" v-if="!username" @click="toLogin">登录</span>
-            <span v-else>{{ username }} <span style="cursor: pointer; white-space: nowrap;" @click="logout">注销</span></span>
-        </div>
-        <div class="down">
-            <div>承办：XXXXXXXXXXXXX</div>
-            <div style="margin-left: 50px">网安备: XXXXXXXXXXXX</div>
-        </div> -->
     </div>
 </template>
   
@@ -86,7 +78,6 @@ export default {
     padding: 30px 0 0 0;
 
     .item {
-        background: rgb(145, 145, 145);
         width: 33%;
         height: 48%;
         border-radius: 20px;
@@ -99,11 +90,27 @@ export default {
         font-weight: bold;
         box-sizing: border-box;
         cursor: pointer;
+        background-size: 100% 100%;
 
         img{
             margin: 0 0 20px 0;
             width: 50px;
         }
+    }
+    .bg1{
+        background-image: url(../assets/img/h1.png);
+    }
+    .bg2{
+        background-image: url(../assets/img/h2.png);
+    }
+    .bg3{
+        background-image: url(../assets/img/h3.png);
+    }
+    .bg4{
+        background-image: url(../assets/img/h4.png);
+    }
+    .item:hover{
+        filter: grayscale(40%);
     }
 }
 </style>
