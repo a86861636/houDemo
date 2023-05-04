@@ -1,5 +1,5 @@
 <template>
-    <el-menu style="width: 250px;height: 100%;" router default-active="2" class="el-menu-vertical-demo"
+    <el-menu style="width: 250px;height: 100%;" router default-active="/demo2?type=1" class="el-menu-vertical-demo"
         background-color="#071B40" text-color="#fff" active-text-color="#ffd04b">
         <el-menu-item index="/home">
             <i class="el-icon-s-home"></i>
