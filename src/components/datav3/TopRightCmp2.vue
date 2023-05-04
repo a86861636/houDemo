@@ -31,7 +31,7 @@ export default {
         },
         xAxis: {
           data: [
-            '一季度', '二季度', '三季度', 
+            '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', 
           ],
           axisLine: {
             style: {
@@ -71,18 +71,14 @@ export default {
         series: [
           {
             name: '目标值',
-            data: [
-            Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1
-            ],
+            data: this.getRandom(),
             type: 'line',
             lineStyle: {
               stroke: '#00baff'
             },
           },{
             name: '实际值',
-            data: [
-            Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1
-            ],
+            data: this.getRandom(),
             type: 'line',
             lineStyle: {
               stroke: '#ff5ca9'
@@ -94,9 +90,14 @@ export default {
   },
   watch: {
     '$route'() {
-      this.option.series[0].data = [Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1]
-      this.option.series[1].data = [Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1]
+      this.option.series[0].data = this.getRandom()
+      this.option.series[1].data = this.getRandom()
       this.option = { ...this.option }
+    }
+  },
+  methods: {
+    getRandom(){
+      return [Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1,Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1,Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1,Math.random() * 7 +1, Math.random() * 7 +1, Math.random() * 7 +1]
     }
   }
 }

@@ -17,8 +17,8 @@
         <dv-decoration-3 style="width:200px;height:20px;" />
       </div>
       <dv-border-box-5 :reverse="true">
-        <div class="main-value"><span>0.1</span>件 / 日</div>
-        <div class="compare-value"><span>同比</span>66</div>
+        <div class="main-value"><span>0.1</span>件/日</div>
+        <div class="compare-value"><span>同比</span>6</div>
         <div class="compare-value"><span>环比</span>9</div>
       </dv-border-box-5>
     </div>
@@ -91,8 +91,8 @@ export default {
   }
 
   .compare-value {
-    height: 35px;
-    line-height: 35px;
+    height: 31px;
+    line-height: 31px;
     font-size: 18px;
 
     span {

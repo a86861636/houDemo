@@ -1,7 +1,6 @@
 <template>
   <div class="bottom-left-chart-1">
-    <!-- <div class="details-value"><span>99.01</span>%</div> -->
-    <dv-charts :option="option" />
+    <dv-charts v-if="show" :option="option" />
   </div>
 </template>
 
@@ -10,17 +9,12 @@ export default {
   name: 'BottomLeftChart1',
   data () {
     return {
+      show: true,
       option: {
         series: [
           {
             type: 'pie',
-            data: [
-              { name: '监控系统', value: 93, radius: ['30%', '33%'] },
-              { name: '收费系统', value: 65, radius: ['32%', '35%'] },
-              { name: '通信系统', value: 32, radius: ['31%', '37%'] },
-              { name: '供配电系统', value: 44, radius: ['31%', '32%'] },
-              { name: '其它', value: 52, radius: ['32%', '35%'] }
-            ],
+            data: this.getRandom(),
             outsideLabel: {
               labelLineEndLength: 20,
               formatter: '{percent}%\n{name}',
@@ -58,6 +52,27 @@ export default {
         ],
         color: ['#00c0ff', '#3de7c9', '#fff', '#00c0ff', '#3de7c9', '#fff']
       }
+    }
+  },
+  watch: {
+    '$route'() {
+      this.option.series[0].data = this.getRandom()
+      this.option = { ...this.option }
+      this.show = false
+      this.$nextTick(()=>{
+        this.show = true
+      })
+    }
+  },
+  methods:{
+    getRandom(){
+      return [
+              { name: '监控系统', value: Math.random()*100, radius: ['30%', '33%'] },
+              { name: '收费系统', value: Math.random()*100, radius: ['32%', '35%'] },
+              { name: '通信系统', value: Math.random()*100, radius: ['31%', '37%'] },
+              { name: '供配电系统', value: Math.random()*100, radius: ['31%', '32%'] },
+              { name: '其它', value: Math.random()*100, radius: ['32%', '35%'] }
+            ]
     }
   }
 }

@@ -12,7 +12,7 @@
       <div class="block-left-right-content">
         <ranking-board />
         <div class="block-top-bottom-content">
-          <div v-for="item in moduleList" :class="{ module: true, width100: item.width === '100%' }">
+          <div v-for="item in moduleList" :class="{ module: true, width100: item.width === '100%',width33:item.width==='33%' }">
             <div class="title">
               {{ item.label }}
             </div>
@@ -33,6 +33,7 @@ import TopMiddleCmp from '../datav3/TopMiddleCmp.vue'
 import TopRightCmp from '../datav3/TopRightCmp'
 import TopRightCmp1 from '../datav3/TopRightCmp1'
 import TopRightCmp2 from '../datav3/TopRightCmp2'
+import ProjectCmp from '../datav3/ProjectCmp'
 import BottomLeftChart1 from '../datav3/BottomLeftChart1'
 import TopLeftCmp from '../datav3/TopLeftCmp'
 import compare from '../compare'
@@ -49,6 +50,7 @@ export default {
     TopRightCmp2,
     BottomLeftChart1,
     TopLeftCmp,
+    ProjectCmp,
     compare
   },
   data() {
@@ -207,14 +209,33 @@ export default {
           label: '项目概况',
           module: [
             {
+              width: '33%',
               label: '项目总投资额',
               com: 'BottomLeftChart1'
             }, {
+              width: '33%',
+              label: '项目类别',
+              com: 'TopRightCmp'
+            }, {
+              width: '33%',
               label: '项目数量',
               com: 'TopLeftCmp'
             }, {
-              label: '项目类别',
-              com: 'TopRightCmp'
+              width: '100%',
+              label: '项目一',
+              com: 'ProjectCmp'
+            }, {
+              width: '100%',
+              label: '项目二',
+              com: 'ProjectCmp'
+            }, {
+              width: '100%',
+              label: '项目三',
+              com: 'ProjectCmp'
+            }, {
+              width: '100%',
+              label: '项目四',
+              com: 'ProjectCmp'
             }
           ]
         },
@@ -319,6 +340,8 @@ export default {
   align-items: center;
   justify-content: center;
   margin-bottom: 2.5vh;
+  
+  overflow: hidden;
 }
 
 #data-view1 {
@@ -400,4 +423,8 @@ export default {
 
 .width100 {
   width: 98%;
-}</style>
+}
+.width33 {
+  width: 31%;
+}
+</style>
